@@ -4,9 +4,7 @@ import 'package:chatlowers/widget/body.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jeafriday/jeafwidget.dart';
-
 import '../widget/buttons.dart';
-import '../widget/logo.dart';
 import '../widget/stories.dart';
 import '../widget/top.dart';
 
@@ -89,23 +87,55 @@ class HomePage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      message("assets/girl_pp.png", "Elif Su",
-                          "Bugün nasılsın?", "20:00"),
-                      message("assets/man_pp.jpeg", "Mehmet",
-                          "Bu akşam halısaha?", "20:00"),
-                      message("assets/girl_pp.png", "Naz",
-                          "Ders notlarını aldım", "20:00"),
-                      message("assets/man_pp.jpeg", "Gökberk", "Teşekkürler😃",
-                          "20:00"),
-                      message("assets/girl_pp.png", "Berra", "Harikasın kanka!",
-                          "20:00"),
-                      message("assets/man_pp.jpeg", "Tuna",
-                          "Kütüphane'de bilekliğimi unutmuşum😑", "20:00"),
                       message(
-                          "assets/girl_pp.png",
-                          "Tuğçe",
-                          "Hayır! Bu gün Isparta'da yağışlı bir hava olacak.",
-                          "20:00"),
+                        context,
+                        "assets/girl_pp.png",
+                        "Elif Su",
+                        "Bugün nasılsın?",
+                        "20:00",
+                      ),
+                      message(
+                        context,
+                        "assets/man_pp.jpeg",
+                        "Mehmet",
+                        "Bu akşam halısaha?",
+                        "20:00",
+                      ),
+                      message(
+                        context,
+                        "assets/girl_pp.png",
+                        "Naz",
+                        "Ders notlarını aldım",
+                        "20:00",
+                      ),
+                      message(
+                        context,
+                        "assets/man_pp.jpeg",
+                        "Gökberk",
+                        "Teşekkürler😃",
+                        "20:00",
+                      ),
+                      message(
+                        context,
+                        "assets/girl_pp.png",
+                        "Berra",
+                        "Harikasın kanka!",
+                        "20:00",
+                      ),
+                      message(
+                        context,
+                        "assets/man_pp.jpeg",
+                        "Tuna",
+                        "Kütüphane'de bilekliğimi unutmuşum😑",
+                        "20:00",
+                      ),
+                      message(
+                        context,
+                        "assets/girl_pp.png",
+                        "Tuğçe",
+                        "Hayır! Bu gün Isparta'da yağışlı bir hava olacak.",
+                        "20:00",
+                      ),
                     ],
                   ),
                 ),
@@ -124,9 +154,12 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget message(String image, String name, String message, String time) {
+  Widget message(BuildContext context, String image, String name,
+      String message, String time) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.pushNamed(context, "/message");
+      },
       focusColor: Colors.transparent,
       hoverColor: Colors.transparent,
       splashColor: Colors.transparent,
