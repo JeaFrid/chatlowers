@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "585313610705",
+    "firebase_url": "https://chatlowers-default-rtdb.firebaseio.com",
+    "project_id": "chatlowers",
+    "storage_bucket": "chatlowers.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:585313610705:android:63ed6d2bd0879078a58ef0",
+        "android_client_info": {
+          "package_name": "com.example.chatlowers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "585313610705-rr722m6pevoa6d62qj1ucg1t89fghs5f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAf_VMl-XqoSElzLPSnaDQC__rl-N0GhhY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "585313610705-rr722m6pevoa6d62qj1ucg1t89fghs5f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

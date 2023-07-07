@@ -38,7 +38,12 @@ class RegisterPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            ChatLoversLogo(),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                ChatLoversLogo(),
+                              ],
+                            ),
                             SizedBox(
                               width: MediaQuery.sizeOf(context).width < 800
                                   ? MediaQuery.sizeOf(context).width * 0.8
@@ -61,15 +66,6 @@ class RegisterPage extends StatelessWidget {
                                       labelText: "Parola",
                                       type: 2),
                                   const SizedBox(height: 15),
-                                  JeaText(
-                                    text:
-                                        "Kayıt olarak gizlilik politikalarımızı kabul etmiş olursunuz.",
-                                    textAlign: TextAlign.center,
-                                    fontSize: 12,
-                                    textColor:
-                                        BdColorDark.textColor.withOpacity(0.4),
-                                  ),
-                                  const SizedBox(height: 15),
                                   JeaButton(
                                     onTap: () async {
                                       loading.value = true;
@@ -89,11 +85,8 @@ class RegisterPage extends StatelessWidget {
                                         prefs.setString("eposta", email.text);
                                         prefs.setString(
                                             "password", password.text);
-                                        String uid = await JeaFire.getUID();
-                                        JeaFire.storeValue("basket", uid, []);
-                                        // ignore: use_build_context_synchronously
-                                        Navigator.pushNamed(
-                                            context, '/profile/"$uid"');
+                                        Navigator.popAndPushNamed(
+                                            context, "/home");
                                       } else if (x[0].toString() == "0") {
                                         loading.value = false;
                                         ByBugDialg.error(
@@ -134,31 +127,6 @@ class RegisterPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(10),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.policy,
-                                  size: 22,
-                                  color: BdColorDark.textColor,
-                                ),
-                                const SizedBox(width: 5),
-                                JeaText(
-                                  text: "Gizlilik Politikası",
-                                  textColor: BdColorDark.textColor,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
                       ),
                     ),
                   ],

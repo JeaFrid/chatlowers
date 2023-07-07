@@ -35,7 +35,12 @@ class LoginPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            ChatLoversLogo(),
+                            const Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                ChatLoversLogo(),
+                              ],
+                            ),
                             SizedBox(
                               width: MediaQuery.sizeOf(context).width < 800
                                   ? MediaQuery.sizeOf(context).width * 0.8
@@ -54,37 +59,38 @@ class LoginPage extends StatelessWidget {
                                       labelText: "Parola",
                                       type: 2),
                                   const SizedBox(height: 15),
-                                  JeaText(
-                                    text:
-                                        "Giriş yaparak gizlilik politikalarımızı kabul etmiş olursunuz.",
-                                    textAlign: TextAlign.center,
-                                    fontSize: 12,
-                                    textColor:
-                                        BdColorDark.textColor.withOpacity(0.4),
-                                  ),
                                   const SizedBox(height: 15),
                                   JeaButton(
                                     onTap: () async {
-                                      loading.value = true;
-                                      final prefs =
-                                          await SharedPreferences.getInstance();
-                                      prefs.setString("eposta", email.text);
-                                      prefs.setString(
-                                          "password", password.text);
-                                      List x = await JeaFire.login(
-                                          email.text, password.text);
-                                      String uid = await JeaFire.getUID();
-                                      // ignore: use_build_context_synchronously
-                                      Navigator.pushNamed(
-                                          context, '/profile/"$uid"');
-                                      if (x[0].toString() == "1") {
-                                      } else if (x[0].toString() == "0") {
-                                        loading.value = false;
-                                        ByBugDialg.error(
-                                            context,
-                                            constraints,
-                                            "Giriş başarısız oldu.",
-                                            "Bir sorun oluştu.");
+                                      if (email.text == "" ||
+                                          password.text == "") {
+                                      } else {
+                                        loading.value = true;
+                                        print("Bekle");
+                                        final prefs = await SharedPreferences
+                                            .getInstance();
+                                        print("Prefs başladı");
+                                        prefs.setString("eposta", email.text);
+                                        print("Mail prefe eklendi");
+                                        prefs.setString(
+                                            "password", password.text);
+                                        print("Password prefe eklendi");
+                                        List x = await JeaFire.login(
+                                            email.text, password.text);
+                                        print("Giriş yapıldı");
+
+                                        if (x[0].toString() == "1") {
+                                          // ignore: use_build_context_synchronously
+                                          Navigator.pushNamed(context, "/home");
+                                        } else if (x[0].toString() == "0") {
+                                          loading.value = false;
+                                          // ignore: use_build_context_synchronously
+                                          ByBugDialg.error(
+                                              context,
+                                              constraints,
+                                              "Giriş başarısız oldu.",
+                                              "Bir sorun oluştu.");
+                                        }
                                       }
                                     },
                                     text: "Giriş Yap",
@@ -118,31 +124,6 @@ class LoginPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(10),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.policy,
-                                  size: 22,
-                                  color: BdColorDark.textColor,
-                                ),
-                                const SizedBox(width: 5),
-                                JeaText(
-                                  text: "Gizlilik Politikası",
-                                  textColor: BdColorDark.textColor,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
                       ),
                     ),
                   ],

@@ -7,6 +7,7 @@ import 'package:jeafriday/jeafwidget.dart';
 
 import '../widget/buttons.dart';
 import '../widget/logo.dart';
+import '../widget/stories.dart';
 import '../widget/top.dart';
 
 class HomePage extends StatelessWidget {
@@ -33,19 +34,25 @@ class HomePage extends StatelessWidget {
                   text: "Mesaj Kutusu",
                   margin: const EdgeInsets.all(8),
                   backgroundColor: BdColorDark.defaultColor.withOpacity(0.2),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.popAndPushNamed(context, "/home");
+                  },
                 ),
                 BdIconButton(
                   iconData: Icons.amp_stories,
                   text: "Gönderiler",
                   margin: const EdgeInsets.all(8),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.popAndPushNamed(context, "/posts");
+                  },
                 ),
                 BdIconButton(
                   iconData: Icons.person_2_sharp,
                   text: "Hesabım",
                   margin: const EdgeInsets.all(8),
-                  onTap: () async {},
+                  onTap: () async {
+                    Navigator.popAndPushNamed(context, "/profile");
+                  },
                 ),
               ],
             ),
@@ -54,6 +61,34 @@ class HomePage extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        child: JeaHorizontalScrollView(
+                          child: const SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                BdStories(),
+                                BdStories(),
+                                BdStories(),
+                                BdStories(),
+                                BdStories(),
+                                BdStories(),
+                                BdStories(),
+                                BdStories(),
+                                BdStories(),
+                                BdStories(),
+                                BdStories(),
+                                BdStories(),
+                                BdStories(),
+                                BdStories(),
+                                BdStories(),
+                                BdStories(),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
                       message("assets/girl_pp.png", "Elif Su",
                           "Bugün nasılsın?", "20:00"),
                       message("assets/man_pp.jpeg", "Mehmet",
@@ -82,8 +117,9 @@ class HomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
           onPressed: () {},
           backgroundColor: BdColorDark.defaultColor,
-          child: Icon(
+          child: const Icon(
             Icons.add,
+            color: Colors.white,
           )),
     );
   }

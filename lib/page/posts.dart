@@ -32,20 +32,26 @@ class PostsPage extends StatelessWidget {
                   iconData: Icons.messenger_outlined,
                   text: "Mesaj Kutusu",
                   margin: const EdgeInsets.all(8),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.popAndPushNamed(context, "/home");
+                  },
                 ),
                 BdIconButton(
                   iconData: Icons.amp_stories,
                   text: "Gönderiler",
                   backgroundColor: BdColorDark.defaultColor.withOpacity(0.2),
                   margin: const EdgeInsets.all(8),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.popAndPushNamed(context, "/posts");
+                  },
                 ),
                 BdIconButton(
                   iconData: Icons.person_2_sharp,
                   text: "Hesabım",
                   margin: const EdgeInsets.all(8),
-                  onTap: () async {},
+                  onTap: () async {
+                    Navigator.popAndPushNamed(context, "/profile");
+                  },
                 ),
               ],
             ),
@@ -153,7 +159,8 @@ class PostsPage extends StatelessWidget {
           backgroundColor: BdColorDark.defaultColor,
           child: const Icon(
             Icons.add,
-          )),
+            color: Colors.white,
+          ),),
     );
   }
 
