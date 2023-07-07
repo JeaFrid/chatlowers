@@ -4,9 +4,7 @@ import 'package:chatlowers/widget/body.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jeafriday/jeafwidget.dart';
-
 import '../widget/buttons.dart';
-import '../widget/logo.dart';
 import '../widget/top.dart';
 
 class PostsPage extends StatelessWidget {
@@ -155,12 +153,13 @@ class PostsPage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          backgroundColor: BdColorDark.defaultColor,
-          child: const Icon(
-            Icons.add,
-            color: Colors.white,
-          ),),
+        onPressed: () {},
+        backgroundColor: BdColorDark.defaultColor,
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
+      ),
     );
   }
 
